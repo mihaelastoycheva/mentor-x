@@ -1,0 +1,21 @@
+package com.example.demo;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import org.springframework.jdbc.core.RowMapper;
+
+public class StudentMapper implements RowMapper<Student> {
+    public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Student student = new Student();
+        student.setId(rs.getInt("id"));
+        student.setName(rs.getString("name"));
+        student.setCity(rs.getString("city"));
+        student.setGrade(rs.getInt("grade"));
+        student.setSchool(rs.getString("school"));
+        student.setSubject(rs.getString("subject"));
+        student.setEmail(rs.getString("email"));
+        student.setBio(rs.getString("bio"));
+
+        return student;
+    }
+}
